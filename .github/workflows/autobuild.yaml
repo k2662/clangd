@@ -70,7 +70,7 @@ jobs:
       run: >
         echo "RELEASE_DESCRIPTION=Unstable snapshot of clangd on ${{ env.RELEASE_DATE }}." >> commit.env
     - name: Upload result
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: env
         path: commit.env
@@ -87,7 +87,7 @@ jobs:
         echo "RELEASE_NAME=${{ github.event.inputs.release_name }}" >> commit.env
         echo "RELEASE_DESCRIPTION=${{ github.event.inputs.description }}" >> commit.env
     - name: Upload result
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: env
         path: commit.env
@@ -128,7 +128,7 @@ jobs:
         echo "TAG_NAME=${{ env.TAG_NAME }}" >> release.env
         echo "RELEASE_ID=${{ steps.create_release.outputs.id }}" >> release.env
     - name: Upload result
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: release
         path: release.env
