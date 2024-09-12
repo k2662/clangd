@@ -39,7 +39,7 @@ jobs:
       run: |
         sudo apt-get install jq
     - name: Clone scripts
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     # Choose the commit to build a release from.
     #
     # We want to avoid unbuildable revisions: choose the last green from CI.
@@ -198,7 +198,7 @@ jobs:
     container: ${{ matrix.config.container }}
     steps:
     - name: Clone scripts
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with: { ref: master }
     - name: Install tools
       run: ${{ matrix.config.preinstall }}
@@ -216,7 +216,7 @@ jobs:
           }
         }
     - name: Clone gRPC
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: grpc/grpc
         path: grpc
@@ -321,7 +321,7 @@ jobs:
         asset_path: clangd.zip
         asset_content_type: application/zip
     - name: Upload indexing-tools asset
-      uses: actions/upload-release-asset@v1.0.1
+      uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
